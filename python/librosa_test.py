@@ -35,7 +35,7 @@ n_mel = 40
 fmin = 80
 fmax = 7600 
 
-wave_data_path = "../samples/p225_002.wav"
+wave_data_path = "/home/ghosttt/Baby-Beacon-Sound-Emotion/data/testing_data/belly_pain.wav"
 wave_data, sample_rate = librosa.load(wave_data_path, 16000)
 print(f"Sample rate: {sample_rate}")
 wave_data = librosa.to_mono(wave_data)
@@ -44,7 +44,7 @@ mfcc = librosa.feature.melspectrogram(y=wave_data, sr=sample_rate, n_mels=n_mel,
 
 mfcc.shape
 
-mfcc_sum = np.sum(mfcc, axis=0)
+mfcc_sum = np.array(np.mean(mfcc.T, axis=0))
 mfcc_sum.shape
 print(mfcc_sum)
 
